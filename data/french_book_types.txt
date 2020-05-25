@@ -1,6 +1,11 @@
+autobiographie
+biographie
+comédie
 contes
 conte philosophique
+essai
 poésie
 roman
 roman épistolaire
 théâtre
+tragédie
