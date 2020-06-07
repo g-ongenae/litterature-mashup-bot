@@ -35,4 +35,4 @@ cover:
 	$(ENV_RUN) pytest --cov=$(SOURCES) $(TESTS)
 
 run:
-	$(ENV_RUN) python run.py
+	PORT=8080 $(ENV_RUN) python run.py

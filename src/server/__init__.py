@@ -1,6 +1,10 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from logging import getLogger
 from os import getenv
 import time
+from src.util.logging import setting_logging
+
+logger = getLogger(__name__)
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -12,6 +16,7 @@ class Handler(BaseHTTPRequestHandler):
         """
         Respond on a GET request
         """
+        logger.info("Respond on GET")
         self.send_response(200)
         self.send_header("Content-type", "text/plain")
         self.end_headers()
@@ -37,6 +42,7 @@ def run_server():
     """
     Run the server
     """
+    setting_logging()
     port = int(getenv("PORT"))
     httpd = HTTPServer(("0.0.0.0", port), Handler)
     httpd.output = {}
