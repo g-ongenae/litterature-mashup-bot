@@ -80,6 +80,7 @@ def main():
     schedule.every().hour.do(tweet)
 
     logger.info("The application started correctly!")
+    print("Started")
 
     # Run
     while 1:
