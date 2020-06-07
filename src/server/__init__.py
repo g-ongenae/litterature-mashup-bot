@@ -40,5 +40,5 @@ def run_server():
     port = int(getenv("PORT"))
     httpd = HTTPServer(("0.0.0.0", port), Handler)
     httpd.output = {}
-    httpd.output["name"] = "Literature Mashup Bot — HTTP Server"
+    httpd.output["name"] = "Literature Mashup Bot - HTTP Server"
     httpd.serve_forever()
