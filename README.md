@@ -32,3 +32,4 @@ OpenLibrary.org/dev/docs/api
   * totally free
 - Find the type based on the book title
 - Fix the function get_author_name_cut_join
+- Find a solution not to use <https://kaffeine.herokuapp.com/>
