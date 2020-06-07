@@ -15,18 +15,22 @@ class BooksType:
         """
         Init the BooksType object
         """
-        self.BOOS_TYPE = []  # pylint: disable=invalid-name
+        logger.info("Creating book type object")
+        self.BOOK_TYPES = []  # pylint: disable=invalid-name
         self.load_books_type()
 
     def load_books_type(self) -> None:
         """
         Load the books type
         """
+        logger.info("Loading book types")
         with open("./data/french_book_types.txt") as file:
-            self.BOOS_TYPE = [line.rstrip() for line in file]
+            self.BOOK_TYPES = [line.rstrip() for line in file]
+        logger.debug("Loaded book types: {}".format(self.BOOK_TYPES))
 
     def get_random_books_type(self) -> str:
         """
         Get two random books type
         """
-        return choice(self.BOOS_TYPE)
+        logger.debug("Getting a book type")
+        return choice(self.BOOK_TYPES)

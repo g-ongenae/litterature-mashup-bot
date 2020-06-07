@@ -1,5 +1,9 @@
 from textwrap import wrap
+from logging import getLogger
 from PIL import Image, ImageDraw, ImageFont
+
+logger = getLogger(__name__)
+
 
 # Sizes
 BOOK_SIZE = (300, 500)
@@ -58,6 +62,7 @@ def _get_biggest_words_len(sentence: str) -> int:
     --------
     the length of the biggest word of the sentence
     """
+    logger.debug("Get biggest word length of sentence: %s" % sentence)
     maximum = 0
     for word in sentence.split(" "):
         maximum = max(len(word), maximum)
@@ -75,6 +80,7 @@ def center_text(
     """
     Add text in the middle of the image
     """
+    logger.debug("Adding text to image: %s", text)
     biggest_len = _get_biggest_words_len(text)
     if biggest_len > 12 or len(text) > 40:
         font = fonts[1]
@@ -95,6 +101,11 @@ def make_image(author: str, title: str, book_type: str) -> Image:
     """
     Make the image
     """
+    logger.info(
+        "Creating Gallimart image cover for author {} and title {}".format(
+            author, title
+        )
+    )
     # Image
     image = Image.new("RGB", BOOK_SIZE, BG_COLOR)
     draw = ImageDraw.Draw(image)

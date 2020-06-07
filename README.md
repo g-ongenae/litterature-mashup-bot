@@ -9,7 +9,6 @@ Inspired by [FlagMashupBot](https://github.com/antooro/FlagsMashupBot).
 - Add new methods to mashup titles:
   * join two title parts (of two different original titles)
   * machine learning with list of titles
-- Add logs
 - Create original title with the following format:
   * word alone (or with article e.g. "La Pluie" or "Pluie")
   * word with a qualification (e.g. "La Douce Pluie")

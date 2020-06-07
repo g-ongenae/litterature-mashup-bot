@@ -1,5 +1,6 @@
 from os import getenv, remove
 import time
+from logging import getLogger
 import tweepy
 import schedule
 from .images.gallimart import make_image
@@ -13,6 +14,8 @@ BOOK_TYPES = None
 BOOKS = None
 TWITTER = None
 
+logger = getLogger(__name__)
+
 
 def init_twitter(
     consumer_key: str, consumer_secret: str, access_token: str, access_token_secret: str
@@ -20,6 +23,7 @@ def init_twitter(
     """
     Log on Twitter API with tweepy
     """
+    logger.info("Logging in with Twitter")
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     return tweepy.API(auth)
@@ -29,6 +33,7 @@ def tweet() -> None:
     """
     Tweet the mashup
     """
+    logger.info("Preparing to tweet")
     filepath = "./image_test.jpg"
     # Get the author to mashup
     author_names = AUTHOR.get_random_names()
@@ -43,14 +48,17 @@ def tweet() -> None:
     message = "{authors[0]} + {authors[1]} = {new_author}".format(
         authors=author_names, new_author=new_author_name
     )
+    logger.info("Tweeting: {}".format(message))
     TWITTER.update_with_media(filepath, status=message)
     remove(filepath)
 
 
-def main() -> None:
+def main():
     """
     Main
     """
+    logger.info("Starting the application")
+
     # Declare the global variables
     global AUTHOR
     global BOOK_TYPES
@@ -71,7 +79,10 @@ def main() -> None:
     # Create cron to tweet once every hour
     schedule.every().hour.do(tweet)
 
+    logger.info("The application started correctly!")
+
     # Run
     while 1:
+        logger.debug("Still up")
         schedule.run_pending()
         time.sleep(1)

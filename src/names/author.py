@@ -13,6 +13,7 @@ class Author:
         """
         Init the author object, load_author_names
         """
+        logger.info("Creating author object")
         self.AUTHOR_NAMES = []  # pylint: disable=invalid-name
         self.AUTHOR_NAMES_RANGE = []  # pylint: disable=invalid-name
         self.load_author_names()
@@ -25,15 +26,19 @@ class Author:
         from https://fr.wikipedia.org/wiki/ \
             Liste_d'écrivains_de_langue_française_par_ordre_chronologique
         """
+        logger.info("Loading author names")
         with open("./data/french_authors.txt") as file:
             self.AUTHOR_NAMES = [line.rstrip() for line in file]
             self.AUTHOR_NAMES_RANGE = range(len(self.AUTHOR_NAMES))
+        logger.debug("Loaded author names: {}".format(len(self.AUTHOR_NAMES)))
 
     def get_random_names(self) -> (str, str):
         """
         Get two random author names
         """
+        logger.debug("Getting two author names")
         i, j = choices(self.AUTHOR_NAMES_RANGE, k=2)
+        logger.debug("Got author name ids: {}, {}".format(i, j))
         return self.AUTHOR_NAMES[i], self.AUTHOR_NAMES[j]
 
 
@@ -42,6 +47,7 @@ def mashup_names(names: (str, str)) -> str:
     Mashup names of the authors
     """
     i = randint(0, 4)
+    logger.info("Mashup author type: {}".format(i))
     if i == 0:
         return get_simple_new_name(names)
     if i == 1:
@@ -53,8 +59,8 @@ def mashup_names(names: (str, str)) -> str:
     if i == 4:
         return get_cut_paste_name(names)
 
-    logger.error(f"Invalid choice: {i}")
-    raise ValueError("Invalid")
+    logger.error(f"Invalid author mashup choice: {i}")
+    raise ValueError("Invalid author mashup choice")
 
 
 def get_simple_new_name(name: (str, str)) -> str:
@@ -63,6 +69,7 @@ def get_simple_new_name(name: (str, str)) -> str:
 
     Type: Simple [firstname 1] [lastname 2]
     """
+    logger.debug("Mashup simple type")
     (firstname, _) = _spliter(name[0])
     (_, lastname) = _spliter(name[1])
     return f"{firstname} {lastname}"
@@ -74,6 +81,7 @@ def get_joined_firstname(name: (str, str)) -> str:
 
     Type: joined first names
     """
+    logger.debug("Mashup firstname type")
     (firstname1, lastname1) = _spliter(name[0])
     (firstname2, lastname2) = _spliter(name[1])
     lastname = choice([lastname1, lastname2])
@@ -85,7 +93,7 @@ def get_joined_firstname(name: (str, str)) -> str:
         init = firstname2[0].upper()
         return f"{firstname1} {init}. {lastname}"
 
-    logger.error(f"Invalid: {join_type}")
+    logger.error(f"Invalid firstname join type: {join_type}")
     raise ValueError("Invalid")
 
 
@@ -95,6 +103,7 @@ def get_joined_lastname(name: (str, str)) -> str:
 
     Type: joined last names
     """
+    logger.debug("Mashup lastname type")
     (firstname1, lastname1) = _spliter(name[0])
     (_, lastname2) = _spliter(name[1])
 
@@ -117,7 +126,7 @@ def get_joined_lastname(name: (str, str)) -> str:
 
         return f"{firstname1} {lastname1} {particle} {lastname2}"
 
-    logger.error(f"Invalid: {join_type}")
+    logger.error(f"Invalid lastname join type: {join_type}")
     raise ValueError("Invalid")
 
 
@@ -127,6 +136,7 @@ def get_duo_name(name: (str, str)) -> str:
 
     Type: duo
     """
+    logger.debug("Mashup duo type")
     (_, lastname1) = _spliter(name[0])
     (_, lastname2) = _spliter(name[1])
 
@@ -139,6 +149,7 @@ def get_cut_paste_name(name: (str, str)) -> str:
 
     Type: cut
     """
+    logger.debug("Mashup cut type")
     (firstname1, lastname1) = _spliter(name[0])
     (_, lastname2) = _spliter(name[1])
 
@@ -151,6 +162,7 @@ def _spliter(name: str) -> (str, str):
     """
     Split a name in its two part
     """
+    logger.debug("Splitting name: %s" % name)
     if " " in name:
         return name.split(" ", 1)
     return (name, "")
