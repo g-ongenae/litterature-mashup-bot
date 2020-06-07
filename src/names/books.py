@@ -1,6 +1,7 @@
 from logging import getLogger
 from random import choice, choices, randint
 import requests
+from .author import _spliter
 
 logger = getLogger(__name__)
 
@@ -37,9 +38,10 @@ class Books:
         )
         res = req.json()
         book_list = []
+        (_, author_last_name) = _spliter(author)
         for i in res["items"]:
             title = i["volumeInfo"]["title"]
-            if not author in title:
+            if not author_last_name in title:
                 book_list.append(title)
         logger.debug("Got book list for author {}: {}".format(author, book_list))
         return book_list
