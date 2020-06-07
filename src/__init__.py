@@ -13,7 +13,7 @@ BOOKS = None
 TWITTER = None
 
 
-def init_tweeter(
+def init_twitter(
     consumer_key: str, consumer_secret: str, access_token: str, access_token_secret: str
 ):
     """
@@ -60,7 +60,7 @@ def main() -> None:
     AUTHOR = Author()
     BOOK_TYPES = BooksType()
     BOOKS = Books(api_key=getenv("GBOOKS_API_KEY"))
-    TWITTER = init_twiter(
+    TWITTER = init_twitter(
         consumer_key=getenv("TWITTER_CONSUMER_KEY"),
         consumer_secret=getenv("TWITTER_ONSUMER_SECRET"),
         access_token=getenv("TWITTER_ACCESS_TOKEN"),
