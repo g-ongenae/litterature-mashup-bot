@@ -1,7 +1,7 @@
+from datetime import datetime
 from logging import getLogger
 from os import getenv, remove
-import time
-import schedule
+from time import sleep
 import tweepy
 from .images.gallimart import make_image
 from .names.author import Author, mashup_names
@@ -55,6 +55,15 @@ def tweet() -> None:
     remove(filepath)
 
 
+def get_sleeping_time() -> int:
+    """
+    Get the number of seconds the application should sleep to tweet at next hour
+    """
+    now = datetime.now()
+    next_hour = datetime(now.year, now.month, now.day, now.hour + 1)
+    return int(next_hour.timestamp() - now.timestamp())
+
+
 def main():
     """
     Main
@@ -81,10 +90,9 @@ def main():
     )
 
     # Create scheduler to tweet once every hour
-    schedule.every().hour.do(tweet)
     logger.info("The application started correctly!")
-
-    # Run
-    while 1:
-        schedule.run_pending()
-        time.sleep(1)
+    while True:
+        sleeping_time = get_sleeping_time()
+        logger.info("Waiting until next hour, sleep for: {}".format(sleeping_time))
+        sleep(sleeping_time)
+        tweet()
