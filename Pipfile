@@ -13,6 +13,8 @@ pytest-cov = "*"
 
 [packages]
 pillow = "*"
+tweepy = "*"
+schedule = "*"
 
 [requires]
 python_version = "3.8"
