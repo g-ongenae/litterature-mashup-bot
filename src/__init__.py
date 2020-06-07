@@ -81,14 +81,11 @@ def main():
     )
 
     # Create scheduler to tweet once every hour
-    # schedule.every().hour.do(tweet)
+    schedule.every().hour.do(tweet)
     logger.info("The application started correctly!")
-    tweet()
-    logger.info("The application finished")
-    return
 
-    # # Run
-    # while 1:
-    #     logger.debug("Still up")
-    #     schedule.run_pending()
-    #     time.sleep(1)
+    # Run
+    while 1:
+        logger.debug("Still up")
+        schedule.run_pending()
+        time.sleep(1)
