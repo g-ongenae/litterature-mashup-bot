@@ -7,6 +7,7 @@ from .images.gallimart import make_image
 from .names.author import Author, mashup_names
 from .names.books_type import BooksType
 from .names.books import Books
+from .util.logging import setting_logging
 
 # Global variables
 AUTHOR = None
@@ -57,6 +58,8 @@ def main():
     """
     Main
     """
+    setting_logging()
+
     logger.info("Starting the application")
 
     # Declare the global variables

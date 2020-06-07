@@ -47,3 +47,6 @@ cover/
 
 # Cython debug symbols
 cython_debug/
+
+# Logging files
+*.log
