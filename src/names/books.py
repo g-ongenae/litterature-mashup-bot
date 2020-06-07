@@ -1,11 +1,12 @@
-import requests
-from random import choice, choices, randint
 from logging import getLogger
+from random import choice, choices, randint
+import requests
 
 logger = getLogger(__name__)
 
 # Constants
 CONJUNCTIONS = ["mais", "ou", "et", "donc", "or", "ni", "car"]
+BASE_EQUALITY = 3
 
 
 class Books:
@@ -25,7 +26,7 @@ class Books:
         Get the list of books written by an author
         """
         logger.info("Getting author books for author {}".format(author))
-        r = requests.get(
+        req = requests.get(
             "https://www.googleapis.com/books/v1/volumes",
             params={
                 "q": "inauthor:{}".format(author),
@@ -34,7 +35,7 @@ class Books:
             },
             headers={"Accept": "application/json"},
         )
-        res = r.json()
+        res = req.json()
         book_list = []
         for i in res["items"]:
             title = i["volumeInfo"]["title"]
@@ -69,7 +70,7 @@ def _mashup_titles(titles: [str]) -> str:
     if mashup_id == 1:
         return join_two_titles(titles)
 
-    logger.error(f"Invalid book mashup choice: {i}")
+    logger.error(f"Invalid book mashup choice: {mashup_id}")
     raise ValueError("Invalid book mashup choice")
 
 
@@ -104,16 +105,15 @@ def _equalize_size(lst_1: [str], lst_2: [str]) -> [str]:
 	Equalize "logarythmically" size of two list
 	"""
     logger.debug("Equalizing book lists")
-    BASE = 3
     # Handle empty lists
     if not lst_1:
         return lst_2
     if not lst_2:
         return lst_1
     # Handle case list widely different size
-    if BASE < len(list(lst_1)) / len(list(lst_2)):
+    if BASE_EQUALITY < len(list(lst_1)) / len(list(lst_2)):
         return lst_1[: len(list(lst_2))] + lst_2
-    if BASE < len(list(lst_2)) / len(list(lst_1)):
+    if BASE_EQUALITY < len(list(lst_2)) / len(list(lst_1)):
         return lst_2[: len(list(lst_1))] + lst_1
-    # Handle case of about same length (same BASE)
+    # Handle case of about same length (same BASE_EQUALITY)
     return lst_1 + lst_2

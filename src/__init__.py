@@ -1,8 +1,8 @@
+from logging import getLogger
 from os import getenv, remove
 import time
-from logging import getLogger
-import tweepy
 import schedule
+import tweepy
 from .images.gallimart import make_image
 from .names.author import Author, mashup_names
 from .names.books_type import BooksType
@@ -10,6 +10,7 @@ from .names.books import Books
 from .util.logging import setting_logging
 
 # Global variables
+# pylint: disable=global-statement
 AUTHOR = None
 BOOK_TYPES = None
 BOOKS = None

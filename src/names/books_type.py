@@ -1,5 +1,5 @@
-from random import choice
 from logging import getLogger
+from random import choice
 
 logger = getLogger(__name__)
 

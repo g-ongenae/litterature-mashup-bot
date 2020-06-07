@@ -1,5 +1,5 @@
-from textwrap import wrap
 from logging import getLogger
+from textwrap import wrap
 from PIL import Image, ImageDraw, ImageFont
 
 logger = getLogger(__name__)
@@ -62,92 +62,86 @@ def _get_biggest_words_len(sentence: str) -> int:
     --------
     the length of the biggest word of the sentence
     """
-    logger.debug("Get biggest word length of sentence: %s" % sentence)
+    logger.debug("Get biggest word length of sentence: {}".format(sentence))
     maximum = 0
     for word in sentence.split(" "):
         maximum = max(len(word), maximum)
     return maximum
 
 
-def center_text(
-    image: ImageDraw,
-    last_height: int,
-    height: int,
-    text: str,
-    color: COLOR,
-    fonts: [ImageFont],
-) -> int:
+class Cover:
     """
-    Add text in the middle of the image
+    Create a cover for "Gallimart"
     """
-    logger.debug("Adding text to image: %s", text)
-    biggest_len = _get_biggest_words_len(text)
-    if biggest_len > 12 or len(text) > 40:
-        font = fonts[1]
-        wrapped = wrap(text, width=max(biggest_len, 15))
-    else:
-        font = fonts[0]
-        wrapped = wrap(text, width=12)
 
-    current_h, padding = max(last_height, height), 10
-    for line in wrapped:
-        width, text_height = image.textsize(line, font=font)
-        image.text(((MAX_WIDTH - width) / 2, current_h), line, color, font=font)
-        current_h += text_height + padding
-    return current_h
+    def __init__(self):
+        """
+        Initialize
+        """
+        self.last_height = 0
+        # Image
+        self.image = Image.new("RGB", BOOK_SIZE, BG_COLOR)
+        self.image_drawer = ImageDraw.Draw(self.image)
+
+    def center_text(
+        self, height: int, text: str, color: COLOR, fonts: [ImageFont]
+    ) -> None:
+        """
+        Add text in the middle of the image
+        """
+        logger.debug("Adding text to image: %s", text)
+        biggest_len = _get_biggest_words_len(text)
+        if biggest_len > 12 or len(text) > 40:
+            font = fonts[1]
+            wrapped = wrap(text, width=max(biggest_len, 15))
+        else:
+            font = fonts[0]
+            wrapped = wrap(text, width=12)
+
+        current_h, padding = max(self.last_height, height), 10
+        for line in wrapped:
+            width, text_height = self.image_drawer.textsize(line, font=font)
+            self.image_drawer.text(
+                ((MAX_WIDTH - width) / 2, current_h), line, color, font=font
+            )
+            current_h += text_height + padding
+        self.last_height = current_h
+
+    def draw_borders(self) -> None:
+        """
+        Borders
+        """
+        self.image_drawer.rectangle(RECT_1, outline=BLACK)
+        self.image_drawer.rectangle(RECT_2, outline=LIGHT_RED)
+        self.image_drawer.rectangle(RECT_3, outline=LIGHT_RED)
+
+    def make_image(self, author: str, title: str, book_type: str) -> Image:
+        """
+        Make the image
+        """
+        logger.info("Creating Gallimart image cover")
+        self.draw_borders()
+
+        # Add texts
+        self.center_text(height=65, text=author.upper(), color=BLACK, fonts=FONT_AUTHOR)
+        self.center_text(
+            height=150, text=title.upper(), color=LIGHT_RED, fonts=FONT_TITLE
+        )
+        self.center_text(
+            height=250, text=book_type.lower(), color=BLACK, fonts=FONT_TYPE
+        )
+        self.center_text(
+            height=430, text="Gallimart".upper(), color=BLACK, fonts=FONT_EDITOR
+        )
+
+        return self.image
 
 
 def make_image(author: str, title: str, book_type: str) -> Image:
     """
     Make the image
     """
-    logger.info(
-        "Creating Gallimart image cover for author {} and title {}".format(
-            author, title
-        )
-    )
-    # Image
-    image = Image.new("RGB", BOOK_SIZE, BG_COLOR)
-    draw = ImageDraw.Draw(image)
-
-    # Borders
-    draw.rectangle(RECT_1, outline=BLACK)
-    draw.rectangle(RECT_2, outline=LIGHT_RED)
-    draw.rectangle(RECT_3, outline=LIGHT_RED)
-
-    # Add texts
-    l = 0
-    l = center_text(
-        image=draw,
-        last_height=l,
-        height=65,
-        text=author.upper(),
-        color=BLACK,
-        fonts=FONT_AUTHOR,
-    )
-    l = center_text(
-        image=draw,
-        last_height=l,
-        height=150,
-        text=title.upper(),
-        color=LIGHT_RED,
-        fonts=FONT_TITLE,
-    )
-    l = center_text(
-        image=draw,
-        last_height=l,
-        height=250,
-        text=book_type.lower(),
-        color=BLACK,
-        fonts=FONT_TYPE,
-    )
-    l = center_text(
-        image=draw,
-        last_height=l,
-        height=430,
-        text="Gallimart".upper(),
-        color=BLACK,
-        fonts=FONT_EDITOR,
-    )
-
-    return image
+    message = "Creating Gallimart image cover for author {} and title {} and type {}"
+    logger.info(message.format(author, title, book_type))
+    cover = Cover()
+    return cover.make_image(author, title, book_type)

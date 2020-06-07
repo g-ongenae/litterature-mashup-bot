@@ -1,5 +1,5 @@
-from random import choices, choice, randint
 from logging import getLogger
+from random import choices, choice, randint
 
 logger = getLogger(__name__)
 
@@ -153,7 +153,7 @@ def get_cut_paste_name(name: (str, str)) -> str:
     (firstname1, lastname1) = _spliter(name[0])
     (_, lastname2) = _spliter(name[1])
 
-    lastname = f"{lastname1} {lastname2}"  # TODO # pylint: disable=fixme
+    lastname = f"{lastname1} {lastname2}"  # TODO
 
     return f"{firstname1} {lastname}"
 
@@ -162,7 +162,7 @@ def _spliter(name: str) -> (str, str):
     """
     Split a name in its two part
     """
-    logger.debug("Splitting name: %s" % name)
+    logger.debug("Splitting name: {}".format(name))
     if " " in name:
         return name.split(" ", 1)
     return (name, "")
