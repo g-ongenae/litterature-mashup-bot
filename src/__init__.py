@@ -86,6 +86,5 @@ def main():
 
     # Run
     while 1:
-        logger.debug("Still up")
         schedule.run_pending()
         time.sleep(1)
