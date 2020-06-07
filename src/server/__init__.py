@@ -42,3 +42,7 @@ def run_server():
     httpd.output = {}
     httpd.output["name"] = "Literature Mashup Bot - HTTP Server"
     httpd.serve_forever()
+
+
+if __name__ == "__main__":
+    run_server()

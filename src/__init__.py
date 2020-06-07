@@ -80,14 +80,15 @@ def main():
         access_token_secret=getenv("TWITTER_ACCESS_TOKEN_SECRET"),
     )
 
-    # Create cron to tweet once every hour
-    schedule.every().hour.do(tweet)
-
+    # Create scheduler to tweet once every hour
+    # schedule.every().hour.do(tweet)
     logger.info("The application started correctly!")
-    print("Started")
+    tweet()
+    logger.info("The application finished")
+    return
 
-    # Run
-    while 1:
-        logger.debug("Still up")
-        schedule.run_pending()
-        time.sleep(1)
+    # # Run
+    # while 1:
+    #     logger.debug("Still up")
+    #     schedule.run_pending()
+    #     time.sleep(1)
