@@ -63,7 +63,7 @@ def main() -> None:
     BOOKS = Books(api_key=getenv("GBOOKS_API_KEY"))
     TWITTER = init_twitter(
         consumer_key=getenv("TWITTER_CONSUMER_KEY"),
-        consumer_secret=getenv("TWITTER_ONSUMER_SECRET"),
+        consumer_secret=getenv("TWITTER_CONSUMER_SECRET"),
         access_token=getenv("TWITTER_ACCESS_TOKEN"),
         access_token_secret=getenv("TWITTER_ACCESS_TOKEN_SECRET"),
     )
