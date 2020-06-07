@@ -1,4 +1,5 @@
 from os import getenv, remove
+import time
 import tweepy
 import schedule
 from .images.gallimart import make_image
