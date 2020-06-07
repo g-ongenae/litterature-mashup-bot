@@ -1,5 +1,6 @@
 from logging import getLogger
 from random import choice, choices, randint
+from textwrap import wrap
 import requests
 from .author import _spliter
 
@@ -57,8 +58,10 @@ class Books:
         # Equalize the number of books
         books_to_mashup = _equalize_size(books_authors0, books_authors1)
         logger.debug("Books to mashup: {}".format(books_to_mashup))
+        new_title = _mashup_titles(books_to_mashup)
 
-        return _mashup_titles(books_to_mashup)
+        # Handle titles way too long
+        return wrap(new_title, 80)[0]
 
 
 def _mashup_titles(titles: [str]) -> str:
