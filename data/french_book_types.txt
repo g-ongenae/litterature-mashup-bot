@@ -1,11 +1,18 @@
 autobiographie
+auto-fiction
 biographie
 comédie
 contes
 conte philosophique
+épopée
 essai
+fables
+fabliaux
 poésie
+nouvelle
+nouvelles
 roman
 roman épistolaire
+témoignage
 théâtre
 tragédie

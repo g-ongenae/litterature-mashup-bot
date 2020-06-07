@@ -1,4 +1,4 @@
-from random import choices, choice
+from random import choices, choice, randint
 from logging import getLogger
 
 logger = getLogger(__name__)
@@ -41,7 +41,7 @@ def mashup_names(names: (str, str)) -> str:
     """
     Mashup names of the authors
     """
-    i = choice(range(5))
+    i = randint(0, 4)
     if i == 0:
         return get_simple_new_name(names)
     if i == 1:
