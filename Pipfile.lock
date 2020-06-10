@@ -170,11 +170,11 @@
         },
         "commitizen": {
             "hashes": [
-                "sha256:071ca483fe73319642686fdd81b3f2d0443cc17bc84269da7b586ec52d7b4f21",
-                "sha256:ecbbc35ce81ee1808ca1f524190bf3d32caae1f744632bce2dbbf30dd1308e1d"
+                "sha256:3536558871083cdb50b99357142baf3d0fd27c8b3b3e0d3f0f1c01ea11257105",
+                "sha256:b136b459083333c0c64d6f826fa13a63e7703c4dfcdef1a45557933ba06ab4ba"
             ],
             "index": "pypi",
-            "version": "==1.22.2"
+            "version": "==1.22.3"
         },
         "coverage": {
             "hashes": [
@@ -512,14 +512,6 @@
                 "sha256:fe460b922ec15dd205595c9b5b99e2f056fd98ae8f9f56b888e7a17dc2b757e7"
             ],
             "version": "==1.4.1"
-        },
-        "typing": {
-            "hashes": [
-                "sha256:91dfe6f3f706ee8cc32d38edbbf304e9b7583fb37108fef38229617f8b3eba23",
-                "sha256:c8cabb5ab8945cd2f54917be357d134db9cc1eb039e59d1606dc1e60cb1d9d36",
-                "sha256:f38d83c5a7a7086543a0f649564d661859c5146a85775ab90c0d2f93ffaa9714"
-            ],
-            "version": "==3.7.4.1"
         },
         "virtualenv": {
             "hashes": [
