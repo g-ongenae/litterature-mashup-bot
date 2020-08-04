@@ -177,11 +177,11 @@
         },
         "commitizen": {
             "hashes": [
-                "sha256:11f6032fc1c4687971db45c4234e291050abf31dbe990699a3b531e8736d5b20",
-                "sha256:2d569b417e47016d44e6e3ac80b02c9fec112aacaf5161aab25a885523be4c54"
+                "sha256:a5dcb0757b6ba031df6a295477856cc89f36bbe2d941dac2cfec2b49933b5541",
+                "sha256:d61091c30a17714acc69508e49c97e45ee5539d97de54c6a5c6e966ee47dc945"
             ],
             "index": "pypi",
-            "version": "==2.0.1"
+            "version": "==2.0.2"
         },
         "coverage": {
             "hashes": [
