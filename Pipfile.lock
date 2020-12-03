@@ -134,6 +134,13 @@
             ],
             "version": "==1.4.4"
         },
+        "argcomplete": {
+            "hashes": [
+                "sha256:17f01a9b9b9ece3e6b07058eae737ad6e10de8b4e149105f84614783913aba71",
+                "sha256:de0e1282330940d52ea92a80fea2e4b9e0da1932aaa570f84d268939d1897b04"
+            ],
+            "version": "==1.12.2"
+        },
         "astroid": {
             "hashes": [
                 "sha256:2f4078c2a41bf377eea06d71c9d2ba4eb8f6b1af2135bec27bbbb7d8f12bb703",
@@ -179,11 +186,11 @@
         },
         "commitizen": {
             "hashes": [
-                "sha256:924737f3341c2ff37396e2ab8a8002769905e1121596a7c57511b6ea69913780",
-                "sha256:9a57c1d9951276cc48f2c57174aec599915cade83b6530d3b4846628866f1d45"
+                "sha256:33e515940e49355381d29f41081124c0203d92dfce399b82ea4b04a74fc16cba",
+                "sha256:e2bb9baa0f4115d02a044a096cb90e5a9faa7b39e46a581530ce94d7578ae7e6"
             ],
             "index": "pypi",
-            "version": "==2.8.2"
+            "version": "==2.10.0"
         },
         "coverage": {
             "hashes": [
@@ -353,10 +360,10 @@
         },
         "packaging": {
             "hashes": [
-                "sha256:4357f74f47b9c12db93624a82154e9b120fa8293699949152b22065d556079f8",
-                "sha256:998416ba6962ae7fbd6596850b80e17859a5753ba17c32284f67bfff33784181"
+                "sha256:05af3bb85d320377db281cf254ab050e1a7ebcbf5410685a9a407e18a1f81236",
+                "sha256:eb41423378682dadb7166144a4926e443093863024de508ca5c9737d6bc08376"
             ],
-            "version": "==20.4"
+            "version": "==20.7"
         },
         "pathspec": {
             "hashes": [
