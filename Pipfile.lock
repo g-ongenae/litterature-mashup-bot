@@ -25,10 +25,10 @@
         },
         "chardet": {
             "hashes": [
-                "sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae",
-                "sha256:fc323ffcaeaed0e0a02bf4d117757b98aed530d9ed4531e3e15460124c106691"
+                "sha256:0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa",
+                "sha256:f864054d66fd9118f2e67044ac8981a54775ec5b67aed0441892edb553d21da5"
             ],
-            "version": "==3.0.4"
+            "version": "==4.0.0"
         },
         "idna": {
             "hashes": [
@@ -91,10 +91,10 @@
                 "socks"
             ],
             "hashes": [
-                "sha256:7f1a0b932f4a60a1a65caa4263921bb7d9ee911957e0ae4a23a6dd08185ad5f8",
-                "sha256:e786fa28d8c9154e6a4de5d46a1d921b8749f8b74e28bde23768e5e16eece998"
+                "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804",
+                "sha256:c210084e36a42ae6b9219e00e48287def368a26d03a048ddad7bfee44f75871e"
             ],
-            "version": "==2.25.0"
+            "version": "==2.25.1"
         },
         "requests-oauthlib": {
             "hashes": [
@@ -186,11 +186,11 @@
         },
         "commitizen": {
             "hashes": [
-                "sha256:296de0535b7cb5067b9052a83329fb16c35645368db01d539900a06d94d03177",
-                "sha256:4137806045a43c31cb8e3c7c80f64b1eca10231879546c5408f03f793388bbf7"
+                "sha256:1b19552b49998debde819907ccef51667c9f63412069413536b1ab95abd8a95a",
+                "sha256:a141ba4317256daf6b6a9f4f390cd57fc53e63df7989ba46019b10c75a101359"
             ],
             "index": "pypi",
-            "version": "==2.11.0"
+            "version": "==2.11.1"
         },
         "coverage": {
             "hashes": [
