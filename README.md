@@ -32,4 +32,7 @@ OpenLibrary.org/dev/docs/api
   * totally free
 - Find the type based on the book title
 - Fix the function get_author_name_cut_join
-- Find a solution not to use <https://kaffeine.herokuapp.com/>
+- Find a solution not to use <https://kaffeine.herokuapp.com/>:
+  * <https://elements.heroku.com/addons/scheduler>
+  * <https://stackoverflow.com/questions/5480337/easy-way-to-prevent-heroku-idling>
+- Add a way to create mashup quotes
