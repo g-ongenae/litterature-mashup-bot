@@ -124,11 +124,11 @@
         },
         "tweepy": {
             "hashes": [
-                "sha256:3bbb14a0ddef1ca8c9e8686ab2f647163afa02a6bab83507335ce647e9653a90",
-                "sha256:e2fcc6e7e8cc6dc79b8e6678c5b108e515aff4699594462b08a1db7c08328621"
+                "sha256:42c63f5ee2210a8afc7178c74a6d800ef5911b007ad19e774d75dec4b777993e",
+                "sha256:88e2938de5ac7043c9ba8b8358996fbc5806059d63c96269d22527a40ca7d511"
             ],
             "index": "pypi",
-            "version": "==4.0.1"
+            "version": "==4.1.0"
         },
         "urllib3": {
             "hashes": [
@@ -156,11 +156,11 @@
         },
         "astroid": {
             "hashes": [
-                "sha256:dcc06f6165f415220013801642bd6c9808a02967070919c4b746c6864c205471",
-                "sha256:fe81f80c0b35264acb5653302ffbd935d394f1775c5e4487df745bf9c2442708"
+                "sha256:304e99c129794f2cfda584a12b71fde85205da950e2f330f4be09150525ae949",
+                "sha256:9eaeaf92b3e21b70bec1a262e7eb118d2e96294892a5de595c92a12adc80dfc2"
             ],
             "markers": "python_version ~= '3.6'",
-            "version": "==2.8.0"
+            "version": "==2.8.2"
         },
         "attrs": {
             "hashes": [
