@@ -200,11 +200,11 @@
         },
         "commitizen": {
             "hashes": [
-                "sha256:33fe190935412011a9e9e0a3fc80f4b874bc250461a9374b1169f2d86cb81901",
-                "sha256:8bd422319abcdbdbe620aea947b94a58c407996b80c724556c6d7f0e8ab07d49"
+                "sha256:836229809351f38bbe616fd81dce70be7cf59b82e64a37b976171a9c9412e829",
+                "sha256:abc14650e79b5366d200c5fcf484e4389337c05aaef0285d09329cc367eab836"
             ],
             "index": "pypi",
-            "version": "==2.20.4"
+            "version": "==2.20.5"
         },
         "coverage": {
             "extras": [
@@ -299,7 +299,7 @@
                 "sha256:6f62d78e2f89b4500b080fe3a81690850cd254227f27f75c3a0c491a1f351ba7",
                 "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"
             ],
-            "markers": "python_version < '4.0' and python_full_version >= '3.6.1'",
+            "markers": "python_full_version >= '3.6.1' and python_full_version < '4.0.0'",
             "version": "==5.10.1"
         },
         "jinja2": {
@@ -490,11 +490,11 @@
         },
         "prompt-toolkit": {
             "hashes": [
-                "sha256:4bcf119be2200c17ed0d518872ef922f1de336eb6d1ddbd1e089ceb6447d97c6",
-                "sha256:a51d41a6a45fd9def54365bca8f0402c8f182f2b6f7e29c74d55faeb9fb38ac4"
+                "sha256:cb7dae7d2c59188c85a1d6c944fad19aded6a26bd9c8ae115a4e1c20eb90b713",
+                "sha256:f2b6a8067a4fb959d3677d1ed764cc4e63e0f6f565b9a4fc7edc2b18bf80217b"
             ],
             "markers": "python_full_version >= '3.6.2'",
-            "version": "==3.0.26"
+            "version": "==3.0.27"
         },
         "py": {
             "hashes": [
@@ -580,7 +580,7 @@
                 "sha256:600d3aefecce26d48d97eee936fdb66e4bc27f934c3ab6dd1e292c4f43946d90",
                 "sha256:fecfcc8cca110fda9d561cb83f1e97ecbb93c613ff857f655818839dac74ce90"
             ],
-            "markers": "python_version >= '3.6' and python_version < '4.0'",
+            "markers": "python_version >= '3.6' and python_full_version < '4.0.0'",
             "version": "==1.10.0"
         },
         "setuptools": {
@@ -623,11 +623,11 @@
         },
         "tomlkit": {
             "hashes": [
-                "sha256:5a83672c565f78f5fc8f1e44e5f2726446cc6b765113efd21d03e9331747d9ab",
-                "sha256:c1b0fc73abd4f1e77c29ea4061ca0f2e11cbfb77342e17df3d3fdd496fc3f899"
+                "sha256:01407892165b513969231085a33d4be2cb41f186d9fd072c975b6bd1435371b0",
+                "sha256:3bdbfffc3ae6c8628b5fb6ed7b459edb8476472eae15033b705bc7d1380b3e3d"
             ],
-            "markers": "python_version >= '3.6' and python_version < '4.0'",
-            "version": "==0.9.0"
+            "markers": "python_version >= '3.6' and python_full_version < '4.0.0'",
+            "version": "==0.9.1"
         },
         "typing-extensions": {
             "hashes": [
